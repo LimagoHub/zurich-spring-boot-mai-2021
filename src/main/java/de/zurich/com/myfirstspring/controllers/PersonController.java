@@ -49,7 +49,7 @@ public class PersonController {
     @ApiResponse(responseCode = "201", description = "Person wurde neu angelegt")
     public ResponseEntity<Void> saveOrUpdatePersonIdempotent(@Valid  @RequestBody  PersonDTO personDTO, UriComponentsBuilder uriComponentsBuilder) {
 
-        System.out.println(personDTO + " wurde gespeichert");
+        System.out.println(personDTO + " wurde gespeichert!");
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
