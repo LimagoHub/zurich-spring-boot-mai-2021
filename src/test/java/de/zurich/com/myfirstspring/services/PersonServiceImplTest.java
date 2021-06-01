@@ -3,7 +3,7 @@ package de.zurich.com.myfirstspring.services;
 import de.zurich.com.myfirstspring.repositories.PersonRepository;
 import de.zurich.com.myfirstspring.repositories.entities.PersonEntity;
 import de.zurich.com.myfirstspring.services.impl.PersonServiceImpl;
-import de.zurich.com.myfirstspring.services.mapper.PersonMapper;
+import de.zurich.com.myfirstspring.application.mapper.PersonMapper;
 import de.zurich.com.myfirstspring.services.models.Person;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -4,20 +4,14 @@ import de.zurich.com.myfirstspring.repositories.PersonRepository;
 import de.zurich.com.myfirstspring.repositories.entities.PersonEntity;
 import de.zurich.com.myfirstspring.services.PersonService;
 import de.zurich.com.myfirstspring.services.PersonenServiceException;
-import de.zurich.com.myfirstspring.services.mapper.PersonMapper;
+import de.zurich.com.myfirstspring.application.mapper.PersonMapper;
 import de.zurich.com.myfirstspring.services.models.Person;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@Transactional(rollbackFor = PersonenServiceException.class, propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository repository;
@@ -28,7 +22,7 @@ public class PersonServiceImpl implements PersonService {
 
             final PersonRepository repository, // Unter der Verwaltung von Spring
             final PersonMapper mapper, // Unter der Verwaltung von Spring
-            @Qualifier("antipathen") final List<String> antipathen // Nicht unter der Verwaltung
+            final List<String> antipathen // Nicht unter der Verwaltung
     ) {
         this.repository = repository;
         this.mapper = mapper;

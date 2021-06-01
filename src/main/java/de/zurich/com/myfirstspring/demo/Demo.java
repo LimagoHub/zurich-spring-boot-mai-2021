@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Named;
 
-//@Component // @Controller @RestController @Service @Repository
+@Component // @Controller @RestController @Service @Repository
+//@Named
 public class Demo {
 
     private final PersonService personService;

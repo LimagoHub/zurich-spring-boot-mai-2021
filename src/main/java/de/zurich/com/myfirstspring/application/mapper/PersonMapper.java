@@ -1,4 +1,4 @@
-package de.zurich.com.myfirstspring.services.mapper;
+package de.zurich.com.myfirstspring.application.mapper;
 
 import de.zurich.com.myfirstspring.repositories.entities.PersonEntity;
 
