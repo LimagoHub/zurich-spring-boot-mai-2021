@@ -4,6 +4,7 @@ import de.zurich.com.myfirstspring.repositories.PersonRepository;
 import de.zurich.com.myfirstspring.repositories.entities.PersonEntity;
 import de.zurich.com.myfirstspring.services.mapper.PersonMapper;
 import de.zurich.com.myfirstspring.services.models.Person;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,7 +22,12 @@ public class PersonServiceImpl implements  PersonService{
     private final PersonMapper mapper;
     private final List<String> antipathen;
 
-    public PersonServiceImpl(final PersonRepository repository, final PersonMapper mapper, final List<String> antipathen) {
+    public PersonServiceImpl(
+
+            final PersonRepository repository, // Unter der Verwaltung von Spring
+            final PersonMapper mapper, // Unter der Verwaltung von Spring
+            @Qualifier("antipathen") final List<String> antipathen // Nicht unter der Verwaltung
+    ) {
         this.repository = repository;
         this.mapper = mapper;
         this.antipathen = antipathen;
@@ -41,8 +47,9 @@ public class PersonServiceImpl implements  PersonService{
     private boolean speichernImpl(Person person) throws PersonenServiceException {
         checkPerson(person);
 
+        boolean exists = repository.existsById(person.getId());
+        repository.save(mapper.convert(person));
 
-        repository.save(mapper.convert(person));boolean exists = repository.existsById(person.getId());
         return exists;
     }
 
