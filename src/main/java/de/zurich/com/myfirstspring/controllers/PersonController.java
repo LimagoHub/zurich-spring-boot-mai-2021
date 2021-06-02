@@ -2,6 +2,7 @@ package de.zurich.com.myfirstspring.controllers;
 
 
 import de.zurich.com.myfirstspring.controllers.dtos.PersonDTO;
+import de.zurich.com.myfirstspring.controllers.mapper.PersonDTOMapper;
 import de.zurich.com.myfirstspring.services.PersonService;
 import de.zurich.com.myfirstspring.services.PersonenServiceException;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -13,7 +14,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/personen")

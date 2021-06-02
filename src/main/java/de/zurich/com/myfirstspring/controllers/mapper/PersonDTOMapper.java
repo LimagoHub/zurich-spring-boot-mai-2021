@@ -1,4 +1,4 @@
-package de.zurich.com.myfirstspring.controllers;
+package de.zurich.com.myfirstspring.controllers.mapper;
 
 
 import de.zurich.com.myfirstspring.controllers.dtos.PersonDTO;
